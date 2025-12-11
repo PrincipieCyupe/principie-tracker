@@ -1,0 +1,146 @@
+@media (min-width: 768px) {
+    .container {
+        width: 85%; /* Slightly wider container on tablets */
+    }
+
+    /* 1. Header & Navigation */
+    .header-container {
+        flex-wrap: nowrap; /* Prevent wrapping in the header */
+        gap: 20px;
+    }
+    .main-nav {
+        flex-basis: auto; /* Allow nav to shrink/grow based on content */
+        order: 0; /* Put nav back in the center */
+        margin-top: 0;
+        background-color: transparent; /* No background color on desktop nav */
+        padding: 0;
+    }
+    .nav-menu {
+        gap: 15px; /* Increase space between nav items */
+    }
+
+    /* Adjust nav link styling for icons on desktop */
+    .nav-link {
+        padding: 10px 15px;
+        font-size: 1.5rem; /* Make icons larger */
+        color: var(--color-white); /* White icons on blue header */
+        /* HIDE TEXT (The HTML should be updated to use icons only as per last instructions) */
+        text-align: center;
+    }
+    .nav-link.active {
+        color: var(--color-accent); /* Active icon is red */
+        border-bottom: 3px solid var(--color-accent); 
+        background-color: transparent;
+        border-radius: 0;
+    }
+    .nav-link:hover {
+        color: var(--color-accent);
+        background-color: transparent;
+    }
+    .search-btn {
+        font-size: 1.8rem;
+    }
+    
+    /* 2. Dashboard Stats Grid */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
+        gap: 20px;
+    }
+    
+    /* 3. Forms and Controls */
+    .form-actions {
+        flex-direction: row; /* Horizontal buttons */
+        gap: 20px;
+    }
+    .btn {
+        flex-grow: 1; /* Allow buttons to grow evenly in form actions */
+    }
+
+    .controls-section {
+        flex-direction: row; /* Horizontal layout for search and sort */
+        justify-content: space-between;
+        align-items: center;
+    }
+    .search-box {
+        flex-grow: 1; 
+        max-width: 400px;
+    }
+    .search-box input[type="text"] {
+        margin-bottom: 0; /* Remove extra margin */
+    }
+
+    /* 4. Settings Data Actions */
+    .data-actions {
+        flex-direction: row;
+        gap: 20px;
+        justify-content: flex-start;
+    }
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* DESKTOP (Large Screens: 1024px and up) */
+/* -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+    .container {
+        width: 80%; /* Even wider container on desktop */
+        max-width: 1200px; /* Optional max width */
+    }
+    
+    /* 1. Dashboard Stats Grid */
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr); /* Four columns on desktop */
+    }
+    
+    /* 2. Transaction Form Layout */
+    .transaction-form {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 columns for inputs */
+        gap: 20px;
+    }
+    .form-group {
+        margin-bottom: 0; /* Remove vertical margin from form groups */
+    }
+    /* Make the form actions span the full width of the grid */
+    .form-actions {
+        grid-column: 1 / -1; 
+        justify-content: flex-start; /* Align buttons to the left */
+    }
+    .form-actions .btn {
+        flex-grow: 0; /* Don't force buttons to stretch */
+        min-width: 180px;
+    }
+
+    /* 3. About Page Contact Form */
+    .contact-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    /* Message box spans two columns */
+    .contact-form textarea,
+    #send-email-link {
+        grid-column: 1 / -1; 
+    }
+}
+/* Mobile Menu Logic */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block !important; /* Show hamburger on mobile */
+    }
+    .main-nav {
+        display: none; /* Hide menu by default on mobile */
+        width: 100%;
+        margin-top: 15px;
+    }
+    .main-nav.open {
+        display: block; /* Show when open */
+    }
+    .main-nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .header-container {
+        flex-wrap: wrap; /* Allow wrapping so menu drops down */
+    }
+}
